@@ -1,0 +1,6 @@
+<character title="Porcen Maceka">
+	<emotion name="default" image="res://addons/dialegume/sample/characters/Porcen/Default.png" alt="Porcen default expression" scale="0.45" />
+	<emotion name="thoughtful" image="res://addons/dialegume/sample/characters/Porcen/Thoughtful.png" alt="Porcen thoughtful expression" scale="0.45" />
+	<emotion name="smiling" image="res://addons/dialegume/sample/characters/Porcen/Smiling.png" alt="Porcen smiling expression" scale="0.45" />
+	<emotion name="frowning" image="res://addons/dialegume/sample/characters/Porcen/Frowning.png" alt="Porcen frowning expression" scale="0.45" />
+</character>

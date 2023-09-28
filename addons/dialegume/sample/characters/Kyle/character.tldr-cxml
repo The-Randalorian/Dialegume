@@ -1,0 +1,7 @@
+<character title="Kyle">
+	<emotion name="default" image="res://addons/dialegume/sample/characters/Kyle/Default.png" alt="Kyle default expression" scale="0.5"/>
+	<emotion name="surprised" image="res://addons/dialegume/sample/characters/Kyle/Surprised.png" alt="Kyle surprised expression" scale="0.5"/>
+	<emotion name="laughing" image="res://addons/dialegume/sample/characters/Kyle/Laughing.png" alt="Kyle laughing expression" scale="0.5"/>
+	<emotion name="focused" image="res://addons/dialegume/sample/characters/Kyle/Focused.png" alt="Kyle focused expression" scale="0.5"/>
+	<emotion name="frowning" image="res://addons/dialegume/sample/characters/Kyle/Frowning.png" alt="Kyle frowning expression" scale="0.5"/>
+</character>

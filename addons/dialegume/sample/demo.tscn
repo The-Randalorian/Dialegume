@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx6jsqnvx0o54"]
+
+[ext_resource type="Script" path="res://addons/dialegume/sample/demo_driver.gd" id="1_4g6ag"]
+[ext_resource type="Texture2D" uid="uid://cxsuktc72i1lt" path="res://addons/dialegume/sample/demo-background.jpg" id="2_vkc28"]
+[ext_resource type="PackedScene" uid="uid://cab6klfifwn50" path="res://addons/dialegume/sample/dialog_box.tscn" id="3_qgj33"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4g6ag")
+
+[node name="DemoTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+z_index = -256
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vkc28")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="DialogBox" parent="." instance=ExtResource("3_qgj33")]
+layout_mode = 1
+
+[connection signal="timeout" from="DemoTimer" to="DialogBox" method="load_dialog" binds= ["res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml"]]
+[connection signal="exited_dialog" from="DialogBox" to="DemoTimer" method="start"]

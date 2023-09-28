@@ -1,0 +1,296 @@
+[gd_scene load_steps=14 format=3 uid="uid://cab6klfifwn50"]
+
+[ext_resource type="Script" path="res://addons/dialegume/nodes/DialogBox.gd" id="1_hm2d3"]
+[ext_resource type="Script" path="res://addons/dialegume/text effects/RichTextButton.gd" id="2_gd2tf"]
+[ext_resource type="Script" path="res://addons/dialegume/text effects/RichTextImportant.gd" id="3_dv8wq"]
+[ext_resource type="Script" path="res://addons/dialegume/nodes/DialogLocation.gd" id="4_coa3j"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_u81uj"]
+script = ExtResource("2_gd2tf")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_e3pxt"]
+script = ExtResource("3_dv8wq")
+
+[sub_resource type="Gradient" id="Gradient_qx162"]
+offsets = PackedFloat32Array(0, 0.546358, 1)
+colors = PackedColorArray(0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2aj8t"]
+gradient = SubResource("Gradient_qx162")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_56k04"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pp78g"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jl3l"]
+_data = {
+"RESET": SubResource("Animation_56k04"),
+"blink": SubResource("Animation_pp78g")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkgha"]
+bg_color = Color(0.215686, 0.215686, 0.215686, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+expand_margin_left = 9.0
+expand_margin_top = 3.0
+expand_margin_right = 9.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_hcsgc"]
+font_size = 25
+
+[node name="DialogBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hm2d3")
+text_box_path = NodePath("PanelContainer/MarginContainer/HBoxContainer/RichTextLabel")
+decision_box_path = NodePath("ItemList")
+blinker_path = NodePath("PanelContainer/MarginContainer/HBoxContainer/TextureRect")
+nametag_path = NodePath("Nametag")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = 50
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.73
+anchor_right = 0.97
+anchor_bottom = 0.99
+offset_left = 0.399994
+offset_top = 0.199951
+offset_right = -0.400146
+offset_bottom = 0.239929
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+custom_effects = [SubResource("RichTextEffect_u81uj"), SubResource("RichTextEffect_e3pxt")]
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 8
+texture = SubResource("GradientTexture2D_2aj8t")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/MarginContainer/HBoxContainer/TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_2jl3l")
+}
+
+[node name="ItemList" type="ItemList" parent="."]
+visible = false
+z_index = 100
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.05
+anchor_right = 0.75
+anchor_bottom = 0.467
+offset_right = -6.10352e-05
+offset_bottom = -0.23999
+size_flags_horizontal = 3
+allow_search = false
+text_overrun_behavior = 4
+
+[node name="DialogLocationL1" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 0.399994
+offset_top = 0.199951
+offset_right = 0.399994
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_coa3j")
+dialog_box_path = NodePath("..")
+
+[node name="DialogLocationL2" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.15
+anchor_top = 1.0
+anchor_right = 0.15
+anchor_bottom = 1.0
+offset_left = 0.399994
+offset_top = 0.199951
+offset_right = 0.399994
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_coa3j")
+priority = 1
+dialog_box_path = NodePath("..")
+
+[node name="DialogLocationIL1" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.15
+anchor_top = 0.73
+anchor_right = 0.15
+anchor_bottom = 0.73
+offset_left = 0.799988
+offset_top = 0.399902
+offset_right = 0.799988
+offset_bottom = 0.399902
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_coa3j")
+priority = 2
+type = "item"
+dialog_box_path = NodePath("..")
+
+[node name="DialogLocationR1" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.399994
+offset_top = 0.199951
+offset_right = 0.399994
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_coa3j")
+side = "right"
+layout_to = "left"
+facing = Vector2(-1, 1)
+dialog_box_path = NodePath("..")
+
+[node name="DialogLocationR2" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.85
+anchor_top = 1.0
+anchor_right = 0.85
+anchor_bottom = 1.0
+offset_left = 0.399994
+offset_top = 0.199951
+offset_right = 0.399994
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_coa3j")
+side = "right"
+priority = 1
+layout_to = "left"
+facing = Vector2(-1, 1)
+dialog_box_path = NodePath("..")
+
+[node name="DialogLocationIR1" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.85
+anchor_top = 0.73
+anchor_right = 0.85
+anchor_bottom = 0.73
+offset_left = 0.399994
+offset_top = 0.199951
+offset_right = 0.399994
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_coa3j")
+side = "right"
+priority = 2
+layout_to = "left"
+type = "item"
+facing = Vector2(-1, 1)
+dialog_box_path = NodePath("..")
+
+[node name="DialogLocationC1" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 0.400024
+offset_top = 0.199951
+offset_right = 0.400024
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_coa3j")
+side = "center"
+facing = Vector2(0, 1)
+dialog_box_path = NodePath("..")
+
+[node name="Nametag" type="Label" parent="."]
+z_index = 50
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.73
+anchor_right = 0.03
+anchor_bottom = 0.73
+offset_left = 47.6
+offset_top = -21.6
+offset_right = 204.6
+offset_bottom = 22.4
+pivot_offset = Vector2(0, 22)
+theme_override_styles/normal = SubResource("StyleBoxFlat_xkgha")
+text = "Demo Name"
+label_settings = SubResource("LabelSettings_hcsgc")
+
+[connection signal="awaiting_input" from="." to="PanelContainer/MarginContainer/HBoxContainer/TextureRect/AnimationPlayer" method="play" binds= ["blink"]]
+[connection signal="running_dialog" from="." to="PanelContainer/MarginContainer/HBoxContainer/TextureRect/AnimationPlayer" method="play" binds= ["RESET"]]
+[connection signal="item_activated" from="ItemList" to="." method="_on_item_list_item_activated"]
+[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]

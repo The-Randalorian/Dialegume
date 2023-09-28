@@ -1,0 +1,263 @@
+# LANGUAGE translation for Dialegume for the following files:
+# res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+# res://addons/dialegume/sample/items/pie/item.tldr-ixml
+# res://addons/dialegume/sample/characters/Ben/character.tldr-cxml
+# res://addons/dialegume/sample/characters/Gregory/character.tldr-cxml
+# res://addons/dialegume/sample/characters/Luke/character.tldr-cxml
+# res://addons/dialegume/sample/characters/Naativil/character.tldr-cxml
+# res://addons/dialegume/sample/characters/Nikolai/character.tldr-cxml
+#
+# FIRST AUTHOR < EMAIL @ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dialegume\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:7"
+msgid "No, my father didn't fight in the wars. He was a navigator on a spice freighter."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:8"
+msgid "That's what your uncle told you. He didn't hold with your father's ideals. Thought he should have stayed here and not gotten involved."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:9"
+msgid "You fought in the Clone Wars?"
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:10"
+msgid "Yes, I was once a [important type=Good]Jedi Knight[/important] the same as your father."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:11"
+msgid "I wish I'd known him."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:12"
+msgid "He was the best star-pilot in the galaxy, and a cunning warrior."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:13"
+msgid "I understand you've become quite a good pilot yourself. And he was a good friend. Which reminds me..."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:16"
+msgid "I have something here for you. Your father wanted you to have this when you were old enough, but your uncle wouldn't allow it. He feared you might follow old Obi-Wan on some damned-fool idealistic crusade like your father did."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:20"
+msgid "Air breather, if you're done with me, I have some protection money to collect."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:21"
+msgid "Sure, you uh, you go do that."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:39"
+msgid "What is it?"
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:41"
+msgid "Your fathers [important type=KeyItem]lightsaber[/important]. This is the weapon of a [important type=Good]Jedi Knight[/important]. Not as clumsy or as random as a blaster. An elegant weapon for a more civilized time. For over a thousand generations the [important type=Good]Jedi Knights[/important] were the guardians of peace and justice in the Old Republic. Before the dark times, before the [important type=Evil]Empire[/important]."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:49"
+msgid "What was it like before the [important type=Evil]Empire[/important]?"
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:50"
+msgid "The galaxy still wasn't perfect, but the Jedi Knights helped to keep peace, and ensured justice for all creatures."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:57"
+msgid "How did my father die?"
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:58"
+msgid "A young Jedi named [important type=Evil]Darth Vader[/important], who was a pupil of mine until he turned to evil, helped the [important type=Evil]Empire[/important] hunt down and destroy the Jedi Knights. He betrayed and murdered your father. Now the Jedi are all but extinct. [important type=Evil]Vader[/important] was seduced by the dark side of [important type=KeyItem]The Force[/important]."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:65"
+msgid "[important type=KeyItem]The Force[/important]?"
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:66"
+msgid "Well, [important type=KeyItem]The Force[/important] is what gives a Jedi his power. It's an energy field created by all living things. It surrounds us and penetrates us. It binds the galaxy together."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:72"
+msgid "*clang* *k-klank* *klank* *clang*"
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:73"
+msgid "Now, let's see if we can't figure out what you are, my little friend. And where you come from."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:76"
+msgid "I saw part of the message he was..."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:80"
+msgid "I seem to have found it."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:81"
+msgid "General Maceka, years ago you served my father in the Clone Wars. Now he begs you to help him in his struggle against the [important type=Evil]Empire[/important]. I regret that I am unable to present my father's request to you in person, but my ship has fallen under attack and I'm afraid my mission to bring you to [important type=KeyItem]Alsugewne[/important] has failed. I have placed information vital to the survival of the [important type=KeyItem]Rebellion[/important] into the memory systems of this R2 unit. My father will know how to retrieve it. You must see this droid safely delivered to him on [important type=KeyItem]Alsugewne[/important]. This is our most desperate hour. Help me, Sir Ema Maceka, you're my only hope."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:85"
+msgid "You must learn the ways of the Force if you're to come with me to [important type=KeyItem]Alsugewne[/important]."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:86"
+msgid "[important type=KeyItem]Alsugewne[/important]? I'm not going to [important type=KeyItem]Alsugewne[/important]. I've got to go home. It's late, I'm in for it as it is."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:87"
+msgid "I need your help, Luke. She needs your help. I'm getting too old for this sort of thing."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:88"
+msgid "I can't get involved! I've got work to do! It's not that I like the Empire. I hate it! But there's nothing I can do about it right now. It's such a long way from here."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:89"
+msgid "That's your uncle talking."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:90"
+msgid "Oh, God, my uncle. How am I ever going to explain this?"
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:91"
+msgid "Learn about [important type=KeyItem]The Force[/important], Luke."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:95"
+msgid "Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you're going."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:96"
+msgid "You must do what you feel is right, of course."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:100"
+msgid "Fine, old man."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:101"
+msgid "The first things a jedi must learn are respect and kindness. That goes for all living things, even old men."
+msgstr ""
+
+#: addons/dialegume/sample/conversations/sample-dialog.tldr-dxml
+msgctxt "res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml:106"
+msgid "Press the [button action=interact]@ interact button[/button] to replay the demo scene."
+msgstr ""
+
+#: addons/dialegume/sample/items/pie/item.tldr-ixml
+msgctxt "res://addons/dialegume/sample/items/pie/item.tldr-ixml:0"
+msgid "Pie"
+msgstr ""
+
+#: addons/dialegume/sample/items/pie/item.tldr-ixml
+msgctxt "res://addons/dialegume/sample/items/pie/item.tldr-ixml:1"
+msgid "Pie default state"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Gregory/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Gregory/character.tldr-cxml:0"
+msgid "Gregory"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Gregory/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Gregory/character.tldr-cxml:1"
+msgid "Gregory default expression"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Luke/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Luke/character.tldr-cxml:0"
+msgid "Luke"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Luke/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Luke/character.tldr-cxml:1"
+msgid "Luke default expression"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Luke/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Luke/character.tldr-cxml:2"
+msgid "Luke surprised expression"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Luke/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Luke/character.tldr-cxml:3"
+msgid "Luke laughing expression"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Luke/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Luke/character.tldr-cxml:4"
+msgid "Luke focused expression"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Luke/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Luke/character.tldr-cxml:5"
+msgid "Luke frowning expression"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Naativil/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Naativil/character.tldr-cxml:0"
+msgid "Naativil"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Naativil/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Naativil/character.tldr-cxml:1"
+msgid "Naativil default expression"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Nikolai/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Nikolai/character.tldr-cxml:0"
+msgid "Nikolai"
+msgstr ""
+
+#: addons/dialegume/sample/characters/Nikolai/character.tldr-cxml
+msgctxt "res://addons/dialegume/sample/characters/Nikolai/character.tldr-cxml:1"
+msgid "Nikolai default expression"
+msgstr ""

@@ -1,0 +1,3 @@
+<character title="Nikolai">
+	<emotion name="default" image="res://addons/dialegume/sample/characters/Nikolai/Default.png" alt="Nikolai default expression" scale="0.5" />
+</character>

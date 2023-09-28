@@ -1,0 +1,4 @@
+<character title="Naativil">
+	<emotion name="default" image="res://addons/dialegume/sample/characters/Naativil/Default.png" alt="Naativil default expression" scale="0.4" />
+	<variant name="hologram" image="res://assets/images/hologram_overlay.res"/>
+</character>
