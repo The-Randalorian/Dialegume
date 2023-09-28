@@ -23,9 +23,9 @@ It is designed to handle:
 
 ### Writing Dialegume XML
 
-TODO: Fully Document the Dialegume XML format
+Documentation on the XML tags/elements available can be found [on the wiki](https://github.com/The-Randalorian/Dialegume/wiki/Dialegume-XML-Format)
 
-A sample conversation and supporting files are included in `res://addons/dialegume/sample/dialog_box.tscn` for users to see. The file `res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml` contains XML comments (look for `<!-- comment here -->`) discussing many of the available tags.
+A sample conversation and supporting files are included in `res://addons/dialegume/sample/` for users to see. The file `res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml` contains XML comments (look for `<!-- comment here -->`) discussing many of the available tags.
 
 ### Customizing The Dialog Box
 
