@@ -32,3 +32,9 @@ A sample conversation and supporting files are included in `res://addons/dialegu
 TODO: Fully Document customization methods
 
 There are a bunch of settings that need to be applied to the child nodes used by the dialog box. To get these correct, it is recommended to copy the `res://addons/dialegume/sample/dialog_box.tscn` scene and customize things from there.
+
+## Credits
+
+The sample character art images were drawn by SPECTRE1.
+
+The sample background art was modeled by Carpe DM.
