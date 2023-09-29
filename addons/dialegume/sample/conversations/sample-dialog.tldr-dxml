@@ -22,7 +22,7 @@
 	<line chr_id="PORCEN" inverted="true" emotion="default">I have something here for you. Your father wanted you to have this when you were old enough, but your aunt wouldn't allow it. She feared you might follow old Porcen Maceka on some damned-fool idealistic crusade like your father did.</line>
 <!-- Use move tags to rearrange characters on the screen -->
 	<move chr_id="NIKOLAI" side="right"  priority="1"/>
-	<move chr_id="KYLE" side="left"  priority="0"/>
+	<move chr_id="KYLE" side="left"  priority="0"/>	syntax_highlighter.queue_free()
 	<line chr_id="NIKOLAI">Air breather, if you're done with me, I have some protection money to collect.</line>
 	<line chr_id="KYLE" emotion="surprised">Sure, you uh, you go do that.</line>
 <!-- Use exit tags to make a character leave the conversation -->
