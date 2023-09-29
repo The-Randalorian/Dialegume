@@ -1,6 +1,8 @@
 # Dialegume
 An Open Source Dialog System for the Godot game engine. Dialegume is designed to make adding dialog to you game easy while still being customizeable.
 
+<img width="1280" alt="Dialegume Screenshot 1" src="https://github.com/The-Randalorian/Dialegume/assets/8741983/3fb5be59-99b4-4faa-aa06-9edb30409fe7">
+
 It is designed to handle:
 
 1.  Text scaling (keep the same number of lines.)
@@ -12,6 +14,8 @@ It is designed to handle:
 7.  Easy translating.
 8.  Special text for key items or button names.
 9.  Custom features via custom handlers.
+
+The name Dialegume comes from combining the words "dialog" and "legume". More specifically, "dialog" can also be spelled "dialogue". This looks like it would be said like "dia log you", which sounds like legume. Hence, Dialegume.
 
 ## How to
 
