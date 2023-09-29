@@ -31,6 +31,8 @@ Documentation on the XML tags/elements available can be found [on the wiki](http
 
 A sample conversation and supporting files are included in `res://addons/dialegume/sample/` for users to see. The file `res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml` contains XML comments (look for `<!-- comment here -->`) discussing many of the available tags.
 
+<img width="1280" alt="Dialegume Screenshot 2" src="https://github.com/The-Randalorian/Dialegume/assets/8741983/04049a42-4c6d-4299-8ba6-a04ee3375fa1">
+
 ### Customizing The Dialog Box
 
 TODO: Fully Document customization methods
