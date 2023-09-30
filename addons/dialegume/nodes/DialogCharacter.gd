@@ -51,23 +51,40 @@ func _character_handler(tag: Dictionary):
 func _emotion_handler(tag: Dictionary):
 	if _PRINT_XML_HANDLER_STATEMENTS: print("_emotion_handler: ", tag)
 	var tex = load(tag["image"])
+	var inv = tag.get("inverted_image", null)
+	if inv:
+		inv = load(inv)
 	textures[tag.get("name", "UnnamedEmotion")] = {
 		"texture": tex,
 		"scale": float(tag.get("scale", "1.0")) * Vector2(1.0, 1.0),
-		"alt": tag.get("alt", "")
+		"alt": tag.get("alt", ""),
+		"inv": inv
 		}
 
-func set_emotion(texture_name: String):
-	var texture_data = textures.get(texture_name, textures.get("default", textures.keys()[0]))
-	texture_rect.texture = texture_data["texture"]
+var current_texture = ""
+
+func draw_emotion():
+	var texture_data = textures.get(current_texture, textures.get("default", textures.keys()[0]))
+	if _draw_flipped and texture_data["inv"]:
+		texture_rect.texture = texture_data["inv"]
+		texture_rect.flip_h = false
+	else:
+		texture_rect.texture = texture_data["texture"]
+		texture_rect.flip_h = _draw_flipped
 	texture_rect.scale = texture_data["scale"]
 	texture_rect.size = texture_data["texture"].get_size()
 	texture_rect.set_meta("alt", texture_data["alt"])
+
+func set_emotion(texture_name: String):
+	current_texture = texture_name
+	draw_emotion()
 	redraw(0.0)
 	#rescale()
 	#redraw()
 
 var tween: Tween
+
+var _draw_flipped = false
 
 func redraw(time = 0.5):
 	#print("tween time ", time)
@@ -83,7 +100,8 @@ func redraw(time = 0.5):
 	tween.parallel().tween_property(texture_rect, "position", new_offset, time).set_trans(Tween.TRANS_SINE)
 	
 	
-	texture_rect.flip_h = (facing.x < 0) != inverted
+	_draw_flipped = (facing.x < 0) != inverted
+	draw_emotion()
 
 var facing = Vector2(1.0, 1.0)
 var tracker: DialogLocation
@@ -108,7 +126,7 @@ func _on_viewport_resized():
 
 func set_inverted(inv: bool):
 	inverted = inv
-	if tracker: texture_rect.flip_h = (tracker.facing.x < 0) != inverted
+	if tracker: _draw_flipped = (tracker.facing.x < 0) != inverted
 
 var talking_tween: Tween
 
