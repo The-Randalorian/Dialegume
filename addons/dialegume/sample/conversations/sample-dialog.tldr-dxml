@@ -21,8 +21,8 @@
 	<trigger event="porcen_grab_pie_animation_trigger" />
 	<line chr_id="PORCEN" inverted="true" emotion="default">I have something here for you. Your father wanted you to have this when you were old enough, but your aunt wouldn't allow it. She feared you might follow old Porcen Maceka on some damned-fool idealistic crusade like your father did.</line>
 <!-- Use move tags to rearrange characters on the screen -->
-	<move chr_id="NIKOLAI" side="right"  priority="1"/>
-	<move chr_id="KYLE" side="left"  priority="0"/>	syntax_highlighter.queue_free()
+	<move chr_id="NIKOLAI" side="right" priority="1"/>
+	<move chr_id="KYLE" side="left" priority="0"/>	syntax_highlighter.queue_free()
 	<line chr_id="NIKOLAI">Air breather, if you're done with me, I have some protection money to collect.</line>
 	<line chr_id="KYLE" emotion="surprised">Sure, you uh, you go do that.</line>
 <!-- Use exit tags to make a character leave the conversation -->
@@ -53,7 +53,7 @@
 <!-- Use branch tags to define the available paths in a decision -->
 		<branch id="branch_00_00" title="What was it like before the Chain Restaurants?">
 			<line chr_id="KYLE" emotion="default">What was it like before the [important type=Evil]Chain Restaurans[/important]?</line>
-			<line chr_id="PORCEN" emotion="frowning">The galaxy still wasn't perfect, but the Galaxy Knights helped to keep peace, and ensured justice for all creatures.</line>
+			<line chr_id="PORCEN" emotion="frowning">The galaxy still wasn't perfect, but the [important type=Good]Baking Knights[/important] helped to keep peace, and ensured justice for all creatures.</line>
 <!-- Use the deactivate tag to deactivate previously active branches -->
 			<deactivate branch="branch_00_00" />
 <!-- Use jump tags to jump to another point in the conversation -->			
@@ -61,7 +61,7 @@
 		</branch>
 		<branch id="branch_00_01" title="How did my father die?" default="true">
 			<line chr_id="KYLE" emotion="frowning">How did my father die?</line>
-			<line chr_id="PORCEN" emotion="frowning">A young Baker named [important type=Evil]Shift-Manager Harold[/important], who was a pupil of mine until he turned to evil, helped the [important type=Evil]Chain Restaurants[/important] undercut and destroy the Baking Knights. He betrayed and murdered your father. Now the Bakers are all but extinct. [important type=Evil]Harold[/important] was seduced by the dark side of [important type=KeyItem]The Flour[/important].</line>
+			<line chr_id="PORCEN" emotion="frowning">A young Baker named [important type=Evil]Shift-Manager Harold[/important], who was a pupil of mine until he turned to evil, helped the [important type=Evil]Chain Restaurants[/important] undercut and destroy the [important type=Good]Baking Knights[/important]. He betrayed and murdered your father. Now the [important type=Good]Bakers[/important] are all but extinct. [important type=Evil]Harold[/important] was seduced by the dark side of [important type=KeyItem]The Flour[/important].</line>
 <!-- Use the activate tag to activate previously inactive branches -->
 			<activate branch="branch_00_02" />
 			<deactivate branch="branch_00_01" />
@@ -69,7 +69,7 @@
 		</branch>
 		<branch id="branch_00_02" title="The Flour?" inactive="true" default="true">
 			<line chr_id="KYLE" emotion="default">[important type=KeyItem]The Flour[/important]?</line>
-			<line chr_id="PORCEN" emotion="default">Well, [important type=KeyItem]The Flour[/important] is what gives a Baker his power. It's an magical powder created by all living grains. It surrounds us and feeds us. It binds the galaxy together.</line>
+			<line chr_id="PORCEN" emotion="default">Well, [important type=KeyItem]The Flour[/important] is what gives a [important type=Good]Baker[/important] his power. It's an magical powder created by all living grains. It surrounds us and feeds us. It binds the galaxy together.</line>
 			<jump point="decision_00_exit" />
 		</branch>
 	</decision>
@@ -84,8 +84,8 @@
 	<trigger event="naativil_hologram_start_animation_trigger" />
 	<enter chr_id="NAATIVIL" chr_data="res://addons/dialegume/sample/characters/Naativil/character.tldr-cxml" side="center" variant="hologram" />
 	<line chr_id="PORCEN">I seem to have found it.</line>
-	<line chr_id="NAATIVIL">General Maceka, years ago you served my father in the Cake Wars. Now he begs you to help him in his struggle against the [important type=Evil]Chain Restaurants[/important]. I regret that I am unable to present my father's request to you in person, but my ship has fallen under attack and I'm afraid my mission to bring you to [important type=KeyItem]Alsugewne[/important] has failed. I have placed information vital to the survival of the [important type=KeyItem]Test Kitchen[/important] into the memory systems of this gar-bahe unit. My father will know how to retrieve it. You must see this bot safely delivered to him on [important type=KeyItem]Alsugewne[/important]. This is our most desperate hour. Help me, Sir-Ema Maceka, you're my only hope.</line>
-	<trigger event="leia_hologram_stop_animation_trigger" />
+	<line chr_id="NAATIVIL">General Maceka, years ago you served my father in the Cake Wars. Now he begs you to help him in his struggle against the [important type=Evil]Chain Restaurants[/important]. I regret that I am unable to present my father's request to you in person, but my ship has fallen under attack and I'm afraid my mission to bring you to [important type=KeyItem]Alsugewne[/important] has failed. I have placed information vital to the survival of the [important type=Good]Test Kitchen[/important] into the memory systems of this gar-bahe unit. My father will know how to retrieve it. You must see this bot safely delivered to him on [important type=KeyItem]Alsugewne[/important]. This is our most desperate hour. Help me, Sir-Ema Maceka, you're my only hope.</line>
+	<trigger event="naativil_hologram_stop_animation_trigger" />
 	<exit chr_id="NAATIVIL" />
 	
 	<line chr_id="PORCEN">You must learn the ways of [important type=KeyItem]The Flour[/important] if you're to come with me to [important type=KeyItem]Alsugewne[/important].</line>
