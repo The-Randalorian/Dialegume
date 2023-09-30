@@ -198,7 +198,7 @@ func _decision_handler(tag: Dictionary):
 	var counter = 0
 	var default = -1
 	for branch in tag["_children"]:
-		print(branch)
+		#print(branch)
 		decision_box.add_item(branch["title"])
 		if branch["_active_bool"]:
 			if branch.get("default", false):
