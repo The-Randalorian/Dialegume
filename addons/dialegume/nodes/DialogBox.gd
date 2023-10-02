@@ -10,6 +10,7 @@ var waiting = false
 @export var line_delay = 1.0
 @export var delay_time = 1.0
 var current_line = 0
+var rate = 1.0
 
 signal entered_dialog
 signal exited_dialog
@@ -188,6 +189,7 @@ func _line_handler(tag: Dictionary):
 	else:
 		bs = tag.get("block_skip", "false")
 	block_skip = bs.to_lower().begins_with("t") or bs.to_lower().begins_with("y")
+	rate = float(tag.get("rate", tag.get("speed", "1.0")))
 	next_character()
 
 var current_decision = {}
@@ -473,7 +475,7 @@ func next_character(count = 0):
 				if count < character_count:
 					next_character(count)
 				else:
-					TextTimer.start(character_delay)
+					TextTimer.start(character_delay / rate)
 			else:
 				text_box.visible_characters -= 1
 				current_line += max_lines
