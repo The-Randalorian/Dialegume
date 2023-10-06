@@ -446,31 +446,31 @@ func next_character(count = 0):
 				var keep_testing = true
 				while c < text_box.get_total_character_count():
 					text_box.visible_characters = c
-					#print("testing character ", c, ": ", text_box.get_parsed_text()[c], ", ", text_box.get_character_line(c), ", ", current_line + max_lines - 1)
+					print("testing character ", c, ": ", text_box.get_parsed_text()[c], ", ", text_box.get_character_line(c-1), ", ", current_line + max_lines - 1)
 					if text_box.get_parsed_text()[c] == " ":
 						# we reached the end of the word, stop testing and allow it to display.
-						#print("end of word")
-						if text_box.get_character_line(c) > current_line + max_lines - 1:
+						print("end of word")
+						if text_box.get_character_line(c-1) > current_line + max_lines - 1:
 							# we also reached the end of the line. back up and wait.
 							text_box.visible_characters = save
 							current_line += max_lines
 							blink_wait()
-							#print("also end of line")
+							print("also end of line")
 							return
 						break  
-					if text_box.get_character_line(c) > current_line + max_lines - 1:
+					if text_box.get_character_line(c-1) > current_line + max_lines - 1:
 						# we reached the end of the line. back up and wait.
 						text_box.visible_characters = save
 						current_line += max_lines
 						blink_wait()
-						#print("end of line")
+						print("end of line")
 						return
 					# this character didn't end the word or line, keep going.
 					c += 1
 				
 				text_box.visible_characters = save
 			
-			if text_box.get_character_line(text_box.visible_characters) <= current_line + max_lines - 1:
+			if text_box.get_character_line(text_box.visible_characters-1) <= current_line + max_lines - 1:
 				count += 1
 				if count < character_count:
 					next_character(count)
