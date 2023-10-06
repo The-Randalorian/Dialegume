@@ -1,0 +1,169 @@
+<html lang="en-us">
+<!-- This file is wrapped in html, allowing it to be viewed in a browser -->
+<!-- Try it for yourself!-->
+<!-- If you want to save some space, save the file as .dlgm.xml -->
+<!-- and only include the conversation element and it's contents -->
+<head>
+	<link rel="stylesheet" href="../../dialegume-web-style-min.css">
+	<style>
+		line[chr_id="KYLE"] {
+			color: darkgreen;
+		}
+
+		line[chr_id="PORCEN"] {
+			color: maroon;
+		}
+
+		line[chr_id="NIKOLAI"] {
+			color: steelblue;
+		}
+
+		line[chr_id="GREGORY"] {
+			color: darkgoldenrod;
+		}
+
+		line[chr_id="NAATIVIL"] {
+			color: rebeccapurple;
+		}
+	</style>
+	<title>Dialegume Script</title>
+</head>
+<body>
+	<conversation display="client">
+		
+	<!-- Use narration tags to have a line that isn't read by a specific character. -->
+		<narration>The story, all names, characters, and incidents portrayed in this production are fictitious. No identification with actual persons (living or deceased), places, buildings, and products is intended or should be inferred.</narration>
+		<narration>This demo scene is made to demonstrate all of the functions available within Dialegume. It is recommended to not include the "sample" folder in your final project export.</narration>
+		<narration>This demo scene is a heavily modified excerpt from a classic 1977 movie. Have fun figuring out what movie it is.</narration>
+
+	<!-- Use enter tags to bring in new characters. -->
+		<enter chr_id="NIKOLAI" chr_data="res://addons/dialegume/sample/characters/Nikolai/character.tldr-cxml" side="left" priority="0" />
+		<enter chr_id="KYLE" chr_data="res://addons/dialegume/sample/characters/Kyle/character.tldr-cxml" side="left" priority="1" />
+		<enter chr_id="PORCEN" chr_data="res://addons/dialegume/sample/characters/Porcen/character.tldr-cxml" side="right" priority="0" />
+
+	<!-- Use line tags to have characters say lines. -->
+		<line chr_id="KYLE" emotion="focused">No, my father didn't fight in the wars. He was a navigator on a sugar freighter.</line>
+		<line chr_id="PORCEN" emotion="thoughtful">That's what your aunt told you. She didn't hold with your father's ideals. Thought he should have stayed here and not gotten involved.</line>
+		<line chr_id="KYLE" emotion="surprised">You fought in the Cake Wars?</line>
+		<line chr_id="PORCEN" emotion="smiling">Yes, I was once a [important type=Good]Baking Knight[/important] the same as your father.</line>
+		<line chr_id="KYLE" emotion="frowning">I wish I'd known him.</line>
+		<line chr_id="PORCEN" emotion="smiling">He was the best delivery-man in the galaxy, and a cunning warrior.</line>
+		<line chr_id="PORCEN" emotion="thoughtful">I understand you've become quite a good courier yourself. And he was a good friend. Which reminds me...</line>
+	<!-- Use trigger tags to send messages to your game, triggering things like animations -->
+		<trigger event="porcen_grab_pie_animation_trigger" />
+		<line chr_id="PORCEN" inverted="true" emotion="default">I have something here for you. Your father wanted you to have this when you were old enough, but your aunt wouldn't allow it. She feared you might follow old Porcen Maceka on some damned-fool idealistic crusade like your father did.</line>
+	<!-- Use move tags to rearrange characters on the screen -->
+		<move chr_id="NIKOLAI" side="right" priority="1"/>
+		<move chr_id="KYLE" side="left" priority="0"/>
+		<line chr_id="NIKOLAI">Air breather, if you're done with me, I have some protection money to collect.</line>
+		<line chr_id="KYLE" emotion="surprised">Sure, you uh, you go do that.</line>
+	<!-- Use exit tags to make a character leave the conversation -->
+		<exit chr_id="NIKOLAI" />
+		<trigger event="porcen_give_pie_animation_trigger" />
+
+	<!-- Use skip tags to toggle text skipping -->
+		<skip allow="false" />
+	<!-- Use text tags to toggle much of the on screen text -->
+		<text hide="true" />
+		<move chr_id="PORCEN" inverted="false" />
+		<delay time="1.5" />
+		<enter itm_id="PIE" itm_data="res://addons/dialegume/sample/items/pie/item.tldr-ixml" side="right" />
+		<delay time="1.5" />
+		<move itm_id="PIE" side="left" />
+		<delay time="1.5" />
+		<skip block="false" /> <!-- both block and allow are viable attributes, with opposing effects -->
+		<text show="true" /> <!-- same thing as above, with show and hide -->
+
+		<line chr_id="KYLE" emotion="default">What is it?</line>
+		<trigger event="kyle_eat_pie_animation_trigger" />
+		<line chr_id="PORCEN">Your fathers [important type=KeyItem]pie recipe[/important]. This is the weapon of a [important type=Good]Baking Knight[/important]. Not as rough and inconsistent as a cake. An elegant weapon for a more civilized time. For over a thousand generations the [important type=Good]Baking Knights[/important] were the guardians of peace and justice in the Old Malls. Before the dark times, before the [important type=Evil]Chain Restaurants[/important].</line>
+		<trigger event="kyle_finish_pie_animation_trigger" />
+		<exit itm_id="PIE" />
+
+	<!-- Use decision tags to indicate branching paths -->
+		<decision id="decision_00">
+	<!-- Use branch tags to define the available paths in a decision -->
+			<branch id="branch_00_00" title="What was it like before the Chain Restaurants?">
+				<line chr_id="KYLE" emotion="default">What was it like before the [important type=Evil]Chain Restaurans[/important]?</line>
+				<line chr_id="PORCEN" emotion="frowning">The galaxy still wasn't perfect, but the [important type=Good]Baking Knights[/important] helped to keep peace, and ensured justice for all creatures.</line>
+				<line chr_id="KYLE" emotion="default">All creatures?</line>
+				<line chr_id="PORCEN" emotion="thoughtful">Well, we didn't always protect young men who ask too many questions...</line>
+	<!-- Use the deactivate tag to deactivate previously active branches -->
+				<deactivate branch="branch_00_00" />
+	<!-- Use jump tags to jump to another point in the conversation -->
+				<jump point="decision_00" />
+			</branch>
+			<branch id="branch_00_01" title="How did my father die?" default="true">
+				<line chr_id="KYLE" emotion="frowning">How did my father die?</line>
+				<line chr_id="PORCEN" emotion="frowning">A young Baker named [important type=Evil]Shift-Manager Harold[/important], who was a pupil of mine until he turned to evil, helped the [important type=Evil]Chain Restaurants[/important] undercut and destroy the [important type=Good]Baking Knights[/important]. He betrayed and murdered your father. Now the [important type=Good]Bakers[/important] are all but extinct. [important type=Evil]Harold[/important] was seduced by the dark side of [important type=KeyItem]The Flour[/important].</line>
+	<!-- Use the activate tag to activate previously inactive branches -->
+				<activate branch="branch_00_02" />
+				<deactivate branch="branch_00_01" />
+				<jump point="decision_00" />
+			</branch>
+			<branch id="branch_00_02" title="The Flour?" inactive="true" default="true">
+				<line chr_id="KYLE" emotion="default">[important type=KeyItem]The Flour[/important]?</line>
+				<line chr_id="PORCEN" emotion="default">Well, [important type=KeyItem]The Flour[/important] is what gives a [important type=Good]Baker[/important] his power. It's an magical powder created by all living grains. It surrounds us and feeds us. It binds the galaxy together.</line>
+				<jump point="decision_00_exit" />
+			</branch>
+		</decision>
+
+		<enter chr_id="GREGORY" chr_data="res://addons/dialegume/sample/characters/Gregory/character.tldr-cxml" side="center" id="decision_00_exit" priority="0"/>
+		<line chr_id="GREGORY">*clang* *k-klank* *klank* *clang*</line>
+		<line chr_id="PORCEN">Now, let's see if we can't figure out what you are, my little friend. And where you come from.</line>
+		<move chr_id="KYLE" side="left" priority="1"/>
+		<move chr_id="GREGORY" side="left" priority="0"/>
+		<line chr_id="KYLE" emotion="focused">I saw part of the message he was...</line>
+
+		<trigger event="naativil_hologram_start_animation_trigger" />
+		<enter chr_id="NAATIVIL" chr_data="res://addons/dialegume/sample/characters/Naativil/character.tldr-cxml" side="center" variant="hologram" />
+		<line chr_id="PORCEN">I seem to have found it.</line>
+		<line chr_id="NAATIVIL">General Maceka, years ago you served my father in the Cake Wars. Now he begs you to help him in his struggle against the [important type=Evil]Chain Restaurants[/important].</line>
+		<line chr_id="NAATIVIL">I regret that I am unable to present my father's request to you in person, but my ship has fallen under attack and I'm afraid my mission to bring you to [important type=KeyItem]Alsugewne[/important] has failed.</line>
+		<line chr_id="NAATIVIL">I have placed information vital to the survival of the [important type=Good]Test Kitchen[/important] into the memory systems of this gar-bahe unit. My father will know how to retrieve it. You must see this bot safely delivered to him on [important type=KeyItem]Alsugewne[/important].</line>
+		<line chr_id="NAATIVIL">This is our most desperate hour. Help me, Sir-Ema Maceka, you're my only hope.</line>
+		<trigger event="naativil_hologram_stop_animation_trigger" />
+		<exit chr_id="NAATIVIL" />
+
+		<line chr_id="PORCEN">You must learn the ways of [important type=KeyItem]The Flour[/important] if you're to come with me to [important type=KeyItem]Alsugewne[/important].</line>
+		<line chr_id="KYLE" emotion="laughing">[important type=KeyItem]Alsugewne[/important]? I'm not going to [important type=KeyItem]Alsugewne[/important]. I've got to go home. It's late, I'm in for it as it is.</line>
+		<line chr_id="PORCEN">I need your help, Kyle. She needs your help. I'm getting too old for this sort of thing.</line>
+		<line chr_id="KYLE" emotion="surprised">I can't get involved! I've got work to do! It's not that I like the [important type=Evil]Chain Restaurants[/important]. I hate them! But there's nothing I can do about it right now. It's such a long way from here.</line>
+		<line chr_id="PORCEN">That's your aunt talking.</line>
+		<line chr_id="KYLE">Oh, God, my aunt. How am I ever going to explain this?</line>
+		<line chr_id="PORCEN">Learn about [important type=KeyItem]The Flour[/important], Kyle.</line>
+
+		<decision id="decision_01">
+			<branch title="Kind" default="true">
+				<line chr_id="KYLE" emotion="default">Look, I can take you as far as [important type=KeyItem]Flourville[/important]. You can get a transport there to [important type=KeyItem]Dusty Mall[/important] or wherever you're going.</line>
+				<line chr_id="PORCEN" emotion="smiling">You must do what you feel is right, of course.</line>
+				<jump point="decision_01_exit" />
+			</branch>
+			<branch title="Terse">
+				<line chr_id="KYLE" emotion="laughing">Fine, old man.</line>
+				<skip block="true" />
+				<line chr_id="PORCEN" emotion="frowning" rate="0.25">The first things a Baker must learn are respect, kindness, and patience. That goes for all living things, even old men.</line>
+				<skip block="false" />
+				<jump point="decision_01" />
+			</branch>
+		</decision>
+
+		<narration id="decision_01_exit">Press the [button action=interact]@ interact button[/button] to replay the demo scene.</narration>
+	</conversation>
+	<script>
+		function filter_bbcode(element){
+			console.log(element.innerHTML);
+			element.innerHTML = element.innerHTML.replace(/\[\/?(?:b|i|u|sup|url|image|color|size|font){1,}.*?]/mgi, '');
+		}
+
+		const tainted_tags = ["line", "narration"];
+		for (let t = 0; t < tainted_tags.length; t++) {
+			let tag = tainted_tags[t]
+			let bbcode_tainted = document.getElementsByTagName(tag);
+			for (let i = 0; i < bbcode_tainted.length; i++) {
+				filter_bbcode(bbcode_tainted[i])
+			}
+		}
+	</script>
+</body>
+</html>

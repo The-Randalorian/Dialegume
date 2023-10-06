@@ -50,11 +50,11 @@ var items = {}
 
 signal dialog_trigger(event_name: String, target: String)
 	
-func _dialog_handler(tag: Dictionary):
-	if _PRINT_XML_HANDLER_STATEMENTS: print("_dialog_handler: ", tag)
+func _conversation_handler(tag: Dictionary):
+	if _PRINT_XML_HANDLER_STATEMENTS: print("_conversation_handler: ", tag)
 	
-func _enter_handler(tag: Dictionary):
-	if _PRINT_XML_HANDLER_STATEMENTS: print("_enter_handler: ", tag)
+func _enter_empty_handler(tag: Dictionary):
+	if _PRINT_XML_HANDLER_STATEMENTS: print("_enter_empty_handler: ", tag)
 	var chr_data = tag.get("chr_data", null)
 	if chr_data:
 		var new_char = DialogCharacter.new()
@@ -75,6 +75,30 @@ func _enter_handler(tag: Dictionary):
 		new_item.goto(location_side[priority], 0.0)
 		add_child(new_item)
 		items[tag.get("itm_id", "UnnamedItem")] = new_item
+
+func _enter_lazy_handler(tag: Dictionary):
+	if _PRINT_XML_HANDLER_STATEMENTS: print("_enter_lazy_handler: ", tag)
+	for child in tag["_children"]:
+		var xml_string = rebuild_xml(child)
+		if child["_name"].to_lower() == "character":
+			var new_char = DialogCharacter.new()
+			#print(locations)
+			new_char.character_string = xml_string
+			var location_side = locations["character"][tag.get("side", "right")]
+			var priority = min(int(tag.get("priority", "0")), len(location_side)-1)
+			new_char.goto(location_side[priority], new_char.inverted, 0.0)
+			add_child(new_char)
+			characters[tag.get("chr_id", "UnnamedCharacter")] = new_char
+		var itm_data = tag.get("itm_data", null)
+		if child["_name"].to_lower() == "item":
+			var new_item = DialogItem.new()
+			#print(locations)
+			new_item.item_file = xml_string
+			var location_side = locations["item"][tag.get("side", "right")]
+			var priority = min(int(tag.get("priority", "0")), len(location_side)-1)
+			new_item.goto(location_side[priority], 0.0)
+			add_child(new_item)
+			items[tag.get("itm_id", "UnnamedItem")] = new_item
 
 func _move_handler(tag: Dictionary):
 	if _PRINT_XML_HANDLER_STATEMENTS: print("_move_handler: ", tag)
@@ -279,7 +303,7 @@ func _jump_handler(tag: Dictionary):
 	callback_override = null
 	#run_to_pause()
 	
-func _dialog_done_handler(tag: Dictionary):
+func _conversation_done_handler(tag: Dictionary):
 	if _PRINT_XML_HANDLER_STATEMENTS: print("_dialog_done_handler: ", tag)
 	visible = false
 	for character in characters.values():
@@ -312,7 +336,9 @@ func _ready():
 	DelayTimer.timeout.connect(_on_delay_timer_timeout)
 	add_child(DelayTimer)
 	eager_tag_handlers = {
-		"dialog": _dialog_handler,
+		"dialog": _conversation_handler,
+		"conversation": _conversation_handler,
+		"converse": _conversation_handler,
 		"branch": _branch_handler,
 		"_": _null_handler
 	}
@@ -320,12 +346,15 @@ func _ready():
 		"line": _line_handler,
 		"narration": _line_handler,
 		"decision": _decision_handler,
-		"dialog": _dialog_done_handler,
+		"dialog": _conversation_done_handler,
+		"conversation": _conversation_done_handler,
+		"converse": _conversation_done_handler,
+		"enter": _enter_lazy_handler,
 		"_": _null_handler
 	}
 	empty_tag_handlers = {
 		"jump": _jump_handler,
-		"enter": _enter_handler,
+		"enter": _enter_empty_handler,
 		"exit": _exit_handler,
 		"move": _move_handler,
 		"trigger": _trigger_handler,
@@ -446,16 +475,16 @@ func next_character(count = 0):
 				var keep_testing = true
 				while c < text_box.get_total_character_count():
 					text_box.visible_characters = c
-					print("testing character ", c, ": ", text_box.get_parsed_text()[c], ", ", text_box.get_character_line(c-1), ", ", current_line + max_lines - 1)
+					#print("testing character ", c, ": ", text_box.get_parsed_text()[c], ", ", text_box.get_character_line(c-1), ", ", current_line + max_lines - 1)
 					if text_box.get_parsed_text()[c] == " ":
 						# we reached the end of the word, stop testing and allow it to display.
-						print("end of word")
+						#print("end of word")
 						if text_box.get_character_line(c-1) > current_line + max_lines - 1:
 							# we also reached the end of the line. back up and wait.
 							text_box.visible_characters = save
 							current_line += max_lines
 							blink_wait()
-							print("also end of line")
+							#print("also end of line")
 							return
 						break  
 					if text_box.get_character_line(c-1) > current_line + max_lines - 1:
@@ -463,7 +492,7 @@ func next_character(count = 0):
 						text_box.visible_characters = save
 						current_line += max_lines
 						blink_wait()
-						print("end of line")
+						#print("end of line")
 						return
 					# this character didn't end the word or line, keep going.
 					c += 1
