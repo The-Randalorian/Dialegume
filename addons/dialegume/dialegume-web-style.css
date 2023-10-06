@@ -1,0 +1,118 @@
+line, narration, enter:before, move:before, exit:before, skip:before, branch:before, delay:before, trigger:before, jump:before, activate:before, deactivate:before {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    font-family: sans-serif;
+}
+
+decision:before, move:before, exit:before, skip:before, delay:before, trigger:before, jump:before, activate:before, deactivate:before {
+    font-style: italic;
+}
+
+line, narration {
+    font-weight: bold;
+}
+
+narration:before {
+    content: "(Narration) - ";
+}
+
+line:before {
+    content: attr(chr_id) " - ";
+}
+
+dialog, conversation {
+    display: block;
+}
+
+decision {
+    display: block;
+    border: 2px solid black;
+    padding: 10px 10px 0;
+    break-inside: avoid;
+}
+
+branch {
+    display: block;
+    border: 2px solid black;
+    padding: 0 10px;
+    margin: 0 0 10px;
+    break-inside: avoid;
+}
+
+decision[id] branch:first-child {
+    margin: 10px 0;
+}
+
+decision[id]:before {
+    content: "(#" attr(id) ")";
+}
+
+branch:before {
+    content: attr(title);
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 13pt;
+}
+
+branch[id]:before {
+    content: attr(title) " (#" attr(id) ")";
+}
+
+enter[chr_id][side]:before {
+    content: "- Character " attr(chr_id) " enters on the " attr(side) ". -";
+}
+
+enter[chr_id]:before {
+    content: "- Character " attr(chr_id) " enters. -";
+}
+
+enter[itm_id][side]:before {
+    content: "- Item " attr(itm_id) " enters on the " attr(side) ". -";
+}
+
+enter[itm_id]:before {
+    content: "- Item " attr(itm_id) " enters. -";
+}
+
+move[chr_id][side]:before {
+    content: "- " attr(chr_id) " moves to the " attr(side) ". -";
+}
+
+move[chr_id][inverted]:before {
+    content: "- " attr(chr_id) " changed inversion to " attr(inverted) ". -";
+}
+
+move[itm_id][side]:before {
+    content: "- " attr(itm_id) " moves to the " attr(side) ". -";
+}
+
+exit[chr_id]:before {
+    content: "- Character " attr(chr_id) " exits. -";
+}
+
+exit[itm_id]:before {
+    content: "- Item " attr(itm_id) " exits. -";
+}
+
+skip[block="false"]:before, skip[allow="true"]:before {
+    content: "- Skipping is now allowed. -"
+}
+
+skip[block="true"]:before, skip[allow="false"]:before {
+    content: "- Skipping is now blocked. -"
+}
+
+trigger:before {
+    content: "- Send the signal \"" attr(event) "\". -"
+}
+
+delay:before {
+    content: "- Pause for  " attr(time) " seconds. -"
+}
+
+jump:before {
+    content: "- Jump to " attr(point) ". -";
+}

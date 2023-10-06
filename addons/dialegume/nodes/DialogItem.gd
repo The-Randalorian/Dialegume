@@ -2,6 +2,7 @@ extends DialogXMLBase
 class_name DialogItem
 
 @export var item_file = ""
+@export var item_string = ""
 #var talking_color = Color(1.0, 1.0, 1.0)
 #var listening_color = Color(0.5, 0.5, 0.5)
 var title = ""
@@ -33,7 +34,10 @@ func _ready():
 	texture_rect.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	add_child(texture_rect)
 	
-	load_xml(item_file)
+	if len(item_file) > 0:
+		load_xml(item_file)
+	else:
+		load_xml_immediate(item_string)
 	while run_xml():
 		pass#print("running character xml...")
 	rescale()

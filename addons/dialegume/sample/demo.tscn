@@ -33,5 +33,5 @@ stretch_mode = 6
 [node name="DialogBox" parent="." instance=ExtResource("3_qgj33")]
 layout_mode = 1
 
-[connection signal="timeout" from="DemoTimer" to="DialogBox" method="load_dialog" binds= ["res://addons/dialegume/sample/conversations/sample-dialog.tldr-dxml"]]
+[connection signal="timeout" from="DemoTimer" to="DialogBox" method="load_dialog" binds= ["res://addons/dialegume/sample/conversations/sample-dialog.dlgm.html"]]
 [connection signal="exited_dialog" from="DialogBox" to="DemoTimer" method="start"]

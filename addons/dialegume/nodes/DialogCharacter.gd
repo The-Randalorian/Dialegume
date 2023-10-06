@@ -2,6 +2,7 @@ extends DialogXMLBase
 class_name DialogCharacter
 
 @export var character_file = ""
+@export var character_string = ""
 var talking_color = Color(1.0, 1.0, 1.0)
 var listening_color = Color(0.5, 0.5, 0.5)
 var title = ""
@@ -36,7 +37,10 @@ func _ready():
 	texture_rect.modulate = Color(listening_color, 0.0)
 	add_child(texture_rect)
 	
-	load_xml(character_file)
+	if len(character_file) > 0:
+		load_xml(character_file)
+	else:
+		load_xml_immediate(character_string)
 	while run_xml():
 		pass#print("running character xml...")
 	set_emotion("default")
